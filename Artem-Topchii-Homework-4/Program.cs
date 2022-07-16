@@ -6,44 +6,26 @@ namespace Artem_Topchii_Homework_4
     {
         static int FindTheMinimumValue (int [] array)
         {
-            int minValue = array[0];
-
-            for (int i = 1; i < array.Length; i++)
-            {
-                if (minValue > array[i])
-                {
-                    minValue = array[i];
-                }
-            }
+            int minValue = array[FindTheMinimumValueIndex(array)];
 
             return minValue;
         }
 
         static int FindTheMaximumValue(int[] array)
         {
-            int maxValue = array[0];
-
-            for (int i = 1; i < array.Length; i++)
-            {
-                if (maxValue < array[i])
-                {
-                    maxValue = array[i];
-                }
-            }
+            int maxValue = array[FindTheMaximumValueIndex(array)];
 
             return maxValue;
         }
 
         static int FindTheMinimumValueIndex(int[] array)
         {
-            int minValue = array[0];
             int minValueIndex = 0;
 
             for (int i = 1; i < array.Length; i++)
             {
-                if (minValue > array[i])
+                if (array[minValueIndex] > array[i])
                 {
-                    minValue = array[i];
                     minValueIndex = i;
                 }
             }
@@ -53,14 +35,12 @@ namespace Artem_Topchii_Homework_4
 
         static int FindTheMaximumValueIndex(int[] array)
         {
-            int maxValue = array[0];
             int maxValueIndex = 0;
 
             for (int i = 1; i < array.Length; i++)
             {
-                if (maxValue < array[i])
+                if (array[maxValueIndex] < array[i])
                 {
-                    maxValue = array[i];
                     maxValueIndex = i;
                 }
             }
@@ -72,12 +52,9 @@ namespace Artem_Topchii_Homework_4
         {
             int result = 0;
 
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 1; i < array.Length; i += 2)
             {
-                if (i % 2 != 0)
-                {
-                    result += array[i];
-                }
+                result += array[i];
             }
 
             return result;
@@ -165,147 +142,8 @@ namespace Artem_Topchii_Homework_4
             return (a, b);
         }
 
-        static void Main(string[] args)
+        static void Main()
         {
-
-            //FILL ARRAY WITH RANDOM VALUE
-
-                int beginningOfTheRange = -5;
-                int endOfTheRange = 10;
-                int length = 9;
-                int[] randomArray = new int[length];
-                Random random = new Random();
-
-                for (int i = 0; i < length; i++)
-                {
-                    randomArray[i] = random.Next(beginningOfTheRange, endOfTheRange);
-                }
-
-            //FIND THE MINIMUM VALUE
-
-                //for (int i = 0; i < length; i++)
-                //{
-                //    Console.WriteLine(randomArray[i]);
-                //}
-
-                //Console.WriteLine("Min value of an array - " + FindTheMinimumValue(randomArray));
-
-            //FIND THE MAXIMUM VALUE
-
-                //for (int i = 0; i < length; i++)
-                //{
-                //    Console.WriteLine(randomArray[i]);
-                //}
-
-                //Console.WriteLine("Max value of an array - " + FindTheMaximumValue(randomArray));
-
-            //FIND THE MINIMUM VALUE INDEX
-
-                //for (int i = 0; i < length; i++)
-                //{
-                //    Console.WriteLine(i + " - " + randomArray[i]);
-                //}
-
-                //Console.WriteLine("Min value index of an array - " + FindTheMinimumValueIndex(randomArray));
-
-            //FIND THE MAXIMUM VALUE INDEX 
-
-                //for (int i = 0; i < length; i++)
-                //{
-                //    Console.WriteLine(i + " - " + randomArray[i]);
-                //}
-
-                //Console.WriteLine("Max value index of an array - " + FindTheMaximumValueIndex(randomArray));
-
-            //SUM OF ARRAY ELEMENTS WITH ODD INDICES
-
-                //for (int i = 0; i < length; i++)
-                //{
-                //    Console.WriteLine(i + " - " + randomArray[i]);
-                //}
-
-                //Console.WriteLine("Sum of array elements with odd indices = " + SumOfArrayElementsWithOddIndices(randomArray));
-
-            //REVERSE ARRAY
-
-                //Console.WriteLine("Original array:");
-
-                //for (int i = 0; i < length; i++)
-                //{
-                //    Console.WriteLine(randomArray[i]);
-                //}
-
-                //Console.WriteLine("Reversed array:");
-
-                //int [] array = ReverseArray(randomArray);
-
-                //for (int i = 0; i < length; i++)
-                //{
-                //    Console.WriteLine(array[i]);
-                //}
-
-            //COUNT OF ODD ARRAY ELEMENTS
-
-                //for (int i = 0; i < length; i++)
-                //{
-                //    Console.WriteLine(randomArray[i]);
-                //}
-
-                //Console.WriteLine("Count of odd array elements - " + CountOfOddArrayElements(randomArray));
-
-            //SWAP THE FIRST AND SECOND HALF OF THE ARRAY
-
-                //Console.WriteLine("Original array:");
-
-                //for (int i = 0; i < length; i++)
-                //{
-                //    Console.WriteLine(randomArray[i]);
-                //}
-
-                //Console.WriteLine("Swapped array:");
-
-                //int[] swappedArray = SwapTheFirstAndSecondHalfOfTheArray(randomArray);
-
-                //for (int i = 0; i < length; i++)
-                //{
-                //    Console.WriteLine(swappedArray[i]);
-                //}
-
-            //SORT THE ARRAY IN ASCENDING ORDER 
-
-                //Console.WriteLine("Original array:");
-
-                //for (int i = 0; i < length; i++)
-                //{
-                //    Console.WriteLine(randomArray[i]);
-                //}
-
-                //Console.WriteLine("Sorted array:");
-
-                //int[] array = SortTheArrayInAscendingOrder(randomArray);
-
-                //for (int i = 0; i < length; i++)
-                //{
-                //    Console.WriteLine(array[i]);
-                //}
-
-            //SORT THE ARRAY IN DESCENDING ORDER 
-
-                //Console.WriteLine("Original array:");
-
-                //for (int i = 0; i < length; i++)
-                //{
-                //    Console.WriteLine(randomArray[i]);
-                //}
-                
-                //Console.WriteLine("Sorted array:");
-
-                //int[] array = SortTheArrayInDescendingOrder(randomArray);
-
-                //for (int i = 0; i < length; i++)
-                //{
-                //    Console.WriteLine(array[i]);
-                //}
         }
     }
 }
